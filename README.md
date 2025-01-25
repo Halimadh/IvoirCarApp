@@ -1,2 +1,2 @@
 # IvoirCarApp
-This is a vehicle rental and sales application.
+This is a vehicle rental and sales application.(Under development)
