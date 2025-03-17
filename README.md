@@ -1,2 +1,4 @@
 # IvoirCarApp
-This is a vehicle rental and sales application.(Under development)
+This is a vehicle rental web app. You can filter the vehicle with specufic criteria and reserve.
+
+## Technologies used
