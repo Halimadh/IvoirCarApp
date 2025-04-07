@@ -1,0 +1,112 @@
+<div class="m-9">
+  <a href="" [routerLink]="['/car']"
+    ><span class="pi pi-angle-left font-bold">BACK</span></a
+  >
+</div>
+<div class="flex flex-col m-5 gap-10 items-center justify-around">
+  <div class="container-car flex flex-row gap-5 border-2 border-orange-500">
+    <div class="card-image">
+      <img
+        class="object-contain h-full"
+        src="{{ selectedCar.imageUrl }}"
+        alt="car image"
+      />
+    </div>
+    <!--Car details-->
+    <div class="mt-10">
+      <h1 class="font-bold text-xl">
+        {{ selectedCar.brand }} {{ selectedCar.model }}
+      </h1>
+      <div class="text-lg flex flex-row gap-5">
+        <span> ❄️ Climatisation</span>
+        <span class="flex">
+          <img class="size-8" src="/assets/images/essence.jpg" alt="" />
+          Essence</span
+        >
+        <span class="flex"
+          ><img class="size-7" src="/assets/images/car-door.webp" alt="" /> 5
+          portes</span
+        >
+      </div>
+      <div class="text-lg flex flex-row gap-5">
+        <span> 🛄 2 Baggages</span>
+        <span class="flex"
+          ><img class="size-8" src="/assets/images/istockphoto.jpg" alt="" /> Km
+          illimite</span
+        >
+        <span class="flex"
+          ><img
+            class="size-8"
+            src="/assets/images/car-driver-seat.webp"
+            alt=""
+          />
+          {{ selectedCar.numberSeat }} places</span
+        >
+      </div>
+      <div
+        class="text-lg text-amber-500 font-bold flex flex-row justify-center p-2 mt-10"
+      >
+        <span>{{ selectedCar.pricePerDay }}dt/jour</span>
+      </div>
+    </div>
+  </div>
+  <div
+    class="container-car flex flex-col gap-5 bg-violet-200 p-8 border-2 border-orange-500"
+  >
+    <div class="flex flex-row gap-5">
+      <div class="card flex justify-center">
+        <p-select
+          [options]="cities"
+          [(ngModel)]="selectedCity"
+          placeholder="Select a place"
+          [editable]="true"
+          optionLabel="name"
+          class="w-full md:w-56"
+        />
+      </div>
+      <div class="card flex justify-center">
+        <p-iftalabel>
+          <p-datepicker
+            [(ngModel)]="value1"
+            inputId="over_label"
+            showIcon
+            iconDisplay="input"
+            [showTime]="true"
+            [hourFormat]="'24'"
+          />
+          <label for="over_label">Date Start</label>
+        </p-iftalabel>
+      </div>
+      <div class="card flex justify-center">
+        <p-iftalabel>
+          <p-datepicker
+            [(ngModel)]="value1"
+            inputId="over_label"
+            showIcon
+            iconDisplay="input"
+            [showTime]="true"
+            [hourFormat]="'24'"
+          />
+          <label for="over_label">Date End</label>
+        </p-iftalabel>
+      </div>
+      <div
+        class="text-lg flex flex-row justify-center w-44 rounded-md bg-amber-500"
+      >
+        <button>Devis</button>
+      </div>
+    </div>
+    <div class="flex flex-row gap-5">
+      <input
+        type="text "
+        placeholder="total price"
+        class="w-56 rounded-md p-2"
+      />
+      <div
+        class="text-lg flex flex-row justify-center w-44 rounded-md bg-amber-500"
+      >
+        <button>Reserve</button>
+      </div>
+    </div>
+  </div>
+</div>

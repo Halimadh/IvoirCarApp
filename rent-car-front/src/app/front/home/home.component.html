@@ -1,0 +1,126 @@
+<div class="mb-10">
+  <section class="section-top">
+    <div
+      class="h-90 text-center flex flex-col justify-center items-center bg-cover"
+      style="background-image: url('/assets/images/image2.jpg')"
+    >
+      <h1 class="text-5xl">
+        <span class="text-black">Welcome To </span>
+        <span class="text-amber-400 font-bold">IvoirCar</span>
+      </h1>
+      <h3 class="text-xl p-3">
+        The agency that makes it easier for you to buy or rent a car
+      </h3>
+      <div
+        class="mt-5 max-w-full rounded-full flex flex-row items-center justify-around p-3 gap-32 bg-white"
+      >
+        <input
+          type="text"
+          label="Search"
+          placeholder="Search"
+          class="w-1/3 mx-auto rounded bg-transparent"
+        />
+
+        <a [routerLink]="['/car']"><span class="pi pi-search"></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-rental mt-9">
+    <div class="text-xl mb-4 ml-10 font-bold">Model car for rental</div>
+    <p-carousel
+      [value]="products"
+      [numVisible]="3"
+      [numScroll]="3"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-product #item>
+        <div class="border border-surface rounded m-2 p-4 w-72">
+          <div class="mb-4">
+            <div class="relative mx-auto">
+              <img
+                src="/assets/images/{{ product.image }}"
+                [alt]="product.name"
+                class="w-full rounded h-44"
+              />
+            </div>
+          </div>
+          <div class="mb-4 font-medium">
+            {{ product.name }}
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="mt-0 font-semibold text-xl">4 Places</div>
+            <span>
+              <p-button class="p-button-rounded p-button-success"
+                >View</p-button
+              >
+            </span>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </section>
+
+  <section class="section-sale mt-9">
+    <div class="text-xl mb-4 ml-10 font-bold">Model car for sale</div>
+    <p-carousel
+      [value]="products"
+      [numVisible]="3"
+      [numScroll]="3"
+      [circular]="true"
+      [responsiveOptions]="responsiveOptions"
+    >
+      <ng-template let-product #item>
+        <div class="border border-surface rounded m-2 p-4 w-72">
+          <div class="mb-4">
+            <div class="relative mx-auto">
+              <img
+                src="/assets/images/{{ product.image }}"
+                [alt]="product.name"
+                class="w-full rounded h-44"
+              />
+            </div>
+          </div>
+          <div class="mb-4 font-medium">
+            {{ product.name }}
+          </div>
+          <div class="flex justify-between items-center">
+            <div class="mt-0 font-semibold text-xl">4 Places</div>
+            <span>
+              <p-button class="p-button-rounded p-button-success"
+                >View</p-button
+              >
+            </span>
+          </div>
+        </div>
+      </ng-template>
+    </p-carousel>
+  </section>
+  <section>
+    <div class="text-xl mb-4 ml-10 font-bold mt-5">Our services</div>
+    <div class="flex justify-between items-center">
+      <div class="w-1/3">
+        <div class="text-center font-medium mt-4">Car rental</div>
+        <p class="text-justify p-3">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="w-1/3">
+        <div class="text-center font-medium mt-4">Car sale</div>
+        <p class="text-justify p-3">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="w-1/3">
+        <div class="text-center font-medium mt-4">Car maintenance</div>
+        <p class="text-justify p-3">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>

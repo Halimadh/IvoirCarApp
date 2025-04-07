@@ -1,0 +1,13 @@
+<div class="flex justify-between mt-4">
+  @if (hide()) {
+  <div (click)="toggleShowHide()" class="flex flex-row justify-between w-full">
+    <h3 class="font-bold">{{ nameBar() }}</h3>
+    <div><span class="pi pi-angle-down"></span></div>
+  </div>
+  }@else {
+  <div (click)="toggleShowHide()" class="flex flex-row justify-between w-full">
+    <h3 class="font-bold">{{ nameBar() }}</h3>
+    <div><span class="pi pi-angle-left"></span></div>
+  </div>
+  }
+</div>

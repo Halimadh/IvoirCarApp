@@ -1,0 +1,104 @@
+<div class="flex filter-container">
+  <div class="bg-violet-200 p-4 ml-2 rounded-md w-full">
+    <!--Filter car-->
+    <div class="flex">
+      <h3 class="font-bold">FILTERS</h3>
+    </div>
+    <div class="flex mt-4 gap-1 flex-wrap">
+      @for (item of itemsFiltered(); track $index) {
+      <div
+        class="flex items bg-black rounded-full p-1 gap-1 items-center justify-around"
+      >
+        <span class="text-white">{{ item }}</span>
+        <span class="pi pi-times" style="color: white; font-size: 10px"></span>
+      </div>
+      }
+    </div>
+    <!-- Start Brands filters-->
+    <app-toggle-angle
+      [nameBar]="brand()"
+      (toggleDiplay)="handleToggleDisplay($event)"
+    ></app-toggle-angle>
+    <div class="h-40 overflow-auto" *ngIf="hide">
+      <input
+        type="text"
+        placeholder="Search for a brand..."
+        [(ngModel)]="searchTerm"
+        class="search-input mb-2 mt-1"
+      />
+      <ul class="brand-list">
+        @for(brand of brandsMock()| filterpipe:searchTerm; track brand.id; let i
+        = $index) {
+        <li>
+          <p-checkbox
+            [inputId]="brand.id.toString()"
+            name="group"
+            [value]="brand"
+            [(ngModel)]="selectedBrands"
+            (ngModelChange)="updateBrandSelected($event)"
+          />
+          <label [for]="brand.id" class="ml-2"> {{ brand.name }} </label>
+        </li>
+
+        }
+      </ul>
+    </div>
+
+    <!--End-->
+    <!--Start Model-->
+    <app-toggle-angle
+      [nameBar]="model()"
+      (toggleDiplay)="handleToggleModelDisplay($event)"
+    ></app-toggle-angle>
+    <div class="overflow-auto" *ngIf="modelshide">
+      @if (selectedBrands().length > 0) {
+      <input
+        type="text"
+        placeholder="Search for a brand..."
+        [(ngModel)]="searchModel"
+        class="search-input mb-2 mt-1"
+      />
+
+      <ul class="brand-list">
+        @for (model of modelsMock()| filterpipe : searchModel; track model.id) {
+
+        <li>
+          <p-checkbox
+            [inputId]="model.id.toString()"
+            name="group"
+            [value]="model"
+            [(ngModel)]="selectedModels"
+          />
+          <label [for]="model.id" class="ml-2"> {{ model.name }} </label>
+        </li>
+        }
+      </ul>
+      }@else {
+
+      <div
+        class="flex justify-center items-center font-medium bg-red-400 w-25 h-20 rounded-md"
+      >
+        <span> Please select a brand before!</span>
+      </div>
+
+      }
+    </div>
+    <!--End-->
+
+    <!--Start Seats-->
+    <div class="flex justify-between mt-5">
+      <h3 class="font-bold">SEATS</h3>
+    </div>
+    <div class="h-40 overflow-auto">
+      <ul>
+        @for (seat of seatsMock(); track $index) {
+        <li>
+          <p-checkbox name="group" [value]="seat" [(ngModel)]="selectedSeats" />
+          <label class="ml-2"> {{ seat.num }} seats </label>
+        </li>
+        }
+      </ul>
+    </div>
+    <!--End-->
+  </div>
+</div>

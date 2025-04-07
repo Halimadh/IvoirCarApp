@@ -1,0 +1,63 @@
+<div class="mb-10">
+  <div class="search-container flex justify-center mt-4">
+    <div class="search-bar p-2 rounded-full bg-violet-200">
+      <input
+        type="text"
+        placeholder="Search cars..."
+        label="search"
+        class="bg-transparent text-black focus:outline-none"
+      />
+      <button type="button">Search</button>
+    </div>
+  </div>
+  <div class="flex flex-wrap justify-around mt-4">
+    <app-filter-layout
+      (brandOutput)="handlerBrandSelected($event)"
+      (modelOutput)="handlerModelSelected($event)"
+      (seatOutput)="handlerSeatSelected($event)"
+    ></app-filter-layout>
+    <!-- list Cars-->
+    <div class="container-cars">
+      <div
+        class="cards grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 lg:grid-cols-2 gap-5"
+      >
+        <div
+          [routerLink]="['/cardetails', car.id]"
+          *ngFor="let car of cars()"
+          class="card-item flex flex-col w-64 h-80 bg-violet-200 rounded-md"
+        >
+          <div class="image-container">
+            <img
+              src="{{ car.imageUrl }}"
+              alt=""
+              class="p-2 w-full h-40 rounded-2xl"
+            />
+          </div>
+          <div class="info-container p-2 flex flex-col gap-1">
+            <!-- <div class="flex flex-row gap-9"> -->
+            <span>
+              <span class="font-bold">
+                {{ car.brand }}
+              </span>
+              {{ car.model }}
+            </span>
+
+            <!-- </div> -->
+            <span> 💺 {{ car.numberSeat }} seats</span>
+            <span>
+              Price :
+              <span class="font-bold">{{ car.pricePerDay }} DT</span></span
+            >
+            <div class="flex justify-center mt-4">
+              <a [routerLink]="['/cardetails', car.id]">
+                <button class="text-white rounded-full bg-violet-700 w-32 h-10">
+                  Reserve
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 50rem;
+}
+
+.search-bar input {
+  padding: 5px;
+  margin-right: 10px;
+}
+
+.car-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.car-card {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.car-card img {
+  width: 100%;
+  height: auto;
+}
